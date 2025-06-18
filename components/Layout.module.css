@@ -1,0 +1,10 @@
+.layout {
+  min-height: 100vh;
+  background-color: #cfcfcf;
+  background-image: repeating-linear-gradient(
+      135deg,
+      #ffffff22 0 1px,
+      transparent 1px 40px
+    ),
+    repeating-linear-gradient(45deg, #ffffff11 0 1px, transparent 1px 40px);
+}
