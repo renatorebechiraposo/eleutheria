@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "@mantine/core/styles.css";
-import { MantineProvider } from "@mantine/core";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import "./globals.css";
 import classes from "@/components/Layout.module.css";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,9 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <MantineProvider>
-        <body className={classes.layout}>{children}</body>
-      </MantineProvider>
+      <body className={classes.layout}>
+        <Header />
+        <MantineProvider>{children}</MantineProvider>
+      </body>
     </html>
   );
 }
