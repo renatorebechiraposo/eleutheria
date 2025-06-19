@@ -17,9 +17,10 @@ import React, { useEffect, useState } from "react";
 import { Playfair_Display } from "next/font/google";
 
 {
-  /*Icons*/
+  /*Mantine*/
 }
-import { GiHamburgerMenu } from "react-icons/gi";
+import { Burger } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -92,6 +93,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  const [opened, { toggle }] = useDisclosure();
 
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
@@ -121,7 +123,13 @@ export default function Header() {
         {hasMounted && (
           <nav className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="p-4">
-              <GiHamburgerMenu size={28} color="white" />
+              <Burger
+                opened={opened}
+                onClick={toggle}
+                aria-label="Toggle navigation"
+                color="#f9f9f9"
+                size="lg"
+              />
             </button>
 
             {isOpen && (
