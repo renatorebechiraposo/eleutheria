@@ -82,7 +82,7 @@ export default function Formulario() {
           <p className="text-xs text-gray-600 italic">I Tessalonicenses 4, 3</p>
         </div>
         <Blockquote
-          color="yellow"
+          color="rgb(225, 184, 64)"
           icon={icon}
           iconSize={24}
           radius={"lg"}
