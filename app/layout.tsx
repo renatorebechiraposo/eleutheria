@@ -4,6 +4,7 @@ import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import "./globals.css";
 import classes from "@/components/Layout.module.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={classes.layout}>
         <Header />
         <MantineProvider>{children}</MantineProvider>
+        <Footer />
       </body>
     </html>
   );

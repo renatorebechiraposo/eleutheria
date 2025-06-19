@@ -22,7 +22,7 @@ export default function NotFound() {
         alt="Not Found"
         width={300}
         height={300}
-        className="md:mb-16"
+        className="w-52 h-80 md:w-72 md:h-96 md:mb-16"
       />
     </main>
   );
