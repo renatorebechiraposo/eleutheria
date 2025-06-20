@@ -116,10 +116,7 @@ export default function Formulario() {
             </div>
           ))}
         </Blockquote>
-
-        <h2 className="font-bold text-center mt-6 mb-6">
-          Formulário de Inscrição
-        </h2>
+        <Space h="lg" />
         <form onSubmit={handleSubmit}>
           <Fieldset legend="Informações Pessoais" radius="lg">
             <TextInput
@@ -181,6 +178,9 @@ export default function Formulario() {
               mb={20}
               radius="md"
               required={true}
+              hideControls={true}
+              allowNegative={false}
+              allowDecimal={false}
               name="rg"
               label="RG"
               description="Apenas números, sem pontos ou traços"
