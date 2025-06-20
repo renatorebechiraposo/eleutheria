@@ -1,6 +1,6 @@
 "use client";
 
-import { Blockquote } from "@mantine/core";
+import { Blockquote, Space } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
 
 import { useState } from "react";
@@ -89,8 +89,9 @@ export default function Formulario() {
           className="text-xs md:text-sm"
         >
           {information.map((item, index) => (
-            <div key={index} className="mb-2">
+            <div key={index}>
               <strong>{item.title}:</strong> {item.content}
+              <Space h="md" />
             </div>
           ))}
         </Blockquote>

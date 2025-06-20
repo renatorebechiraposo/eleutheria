@@ -15,7 +15,7 @@ export default function Footer() {
           alt="Paróquia Santa Luzia"
           className="w-16 mb-4 md:mb-0"
         />
-        <p className="text-center text-xl italic mb-4 md:mb-0">
+        <p className="text-center text-xs md:text-xl italic mb-4 md:mb-0">
           "Uma juventude abrasada pelo Sagrado Coração de Jesus"
         </p>
         <div className="flex gap-4">
