@@ -1,6 +1,19 @@
 "use client";
 
-import { Blockquote, Space } from "@mantine/core";
+import {
+  Blockquote,
+  Button,
+  Fieldset,
+  Group,
+  NumberInput,
+  Radio,
+  Space,
+  TextInput,
+} from "@mantine/core";
+
+import { DateInput } from "@mantine/dates";
+import dayjs from "dayjs";
+
 import { IconInfoCircle } from "@tabler/icons-react";
 
 import { useState } from "react";
@@ -11,6 +24,8 @@ const openSans = Open_Sans({
   subsets: ["latin"],
   display: "swap",
 });
+
+import "@mantine/dates/styles.css";
 
 const information = [
   {
@@ -48,21 +63,30 @@ const information = [
 ];
 
 export default function Formulario() {
-  const [form, setForm] = useState({ nome: "", email: "" });
+  const [form, setForm] = useState({
+    nome: "",
+    rg: "",
+    dataNascimento: "",
+    sexo: "",
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+  const handleNumberChange = (value: string | number) => {
+    setForm({ ...form, rg: value === "" ? "" : String(value) });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch("/api/cadastro", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-    const data = await res.json();
-    alert(data.id ? "Salvo com sucesso!" : data.error);
+    console.log("Formulário enviado:", form);
+    // const res = await fetch("/api/cadastro", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(form),
+    // });
+    // const data = await res.json();
+    // alert(data.id ? "Salvo com sucesso!" : data.error);
   };
 
   const icon = <IconInfoCircle />;
@@ -99,6 +123,68 @@ export default function Formulario() {
         <h2 className="font-bold text-center mt-6 mb-6">
           Formulário de Inscrição
         </h2>
+        <form onSubmit={handleSubmit}>
+          <Fieldset legend="Informações Pessoais" radius="lg">
+            <TextInput
+              mb={20}
+              radius="md"
+              required={true}
+              name="nome"
+              label="Deus te chama pelo nome, qual é o seu?"
+              placeholder="Nome Completo"
+              value={form.nome}
+              onChange={handleChange}
+            />
+            <DateInput
+              mb={20}
+              radius="md"
+              required={true}
+              name="dataNascimento"
+              valueFormat="DD/MM/YYYY"
+              label="Data de Nascimento"
+              placeholder="Selecione sua data de nascimento"
+              value={
+                form.dataNascimento ? dayjs(form.dataNascimento).toDate() : null
+              }
+              onChange={(date) =>
+                setForm({
+                  ...form,
+                  dataNascimento: date ? date.toString() : "",
+                })
+              }
+            />
+            <Radio.Group
+              mb={20}
+              name="sexo"
+              label="Sexo"
+              description="Selecione seu sexo"
+              required={true}
+              value={form.sexo}
+              onChange={(value) => setForm({ ...form, sexo: value })}
+            >
+              <Group mt="xs">
+                <Radio value="masculino" label="Masculino" />
+                <Radio value="feminino" label="Feminino" />
+              </Group>
+            </Radio.Group>
+            <NumberInput
+              mb={20}
+              radius="md"
+              required={true}
+              name="rg"
+              label="RG"
+              description="Apenas números, sem pontos ou traços"
+              placeholder="Digite seu RG"
+              value={form.rg}
+              onChange={handleNumberChange}
+            />
+          </Fieldset>
+          <div className="flex mt-4 justify-center items-center w-full">
+            <Button variant="filled" color="yellow" type="submit">
+              Inscrever-se
+            </Button>
+          </div>
+        </form>
       </div>
     </div>
   );
