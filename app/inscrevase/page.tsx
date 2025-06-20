@@ -5,8 +5,10 @@ import {
   Button,
   Fieldset,
   Group,
+  NativeSelect,
   NumberInput,
   Radio,
+  Select,
   Space,
   TextInput,
 } from "@mantine/core";
@@ -68,14 +70,9 @@ export default function Formulario() {
     rg: "",
     dataNascimento: "",
     sexo: "",
+    estadoCivil: "",
+    whatsapp: "",
   });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-  const handleNumberChange = (value: string | number) => {
-    setForm({ ...form, rg: value === "" ? "" : String(value) });
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -133,7 +130,7 @@ export default function Formulario() {
               label="Deus te chama pelo nome, qual é o seu?"
               placeholder="Nome Completo"
               value={form.nome}
-              onChange={handleChange}
+              onChange={(e) => setForm({ ...form, nome: e.target.value })}
             />
             <DateInput
               mb={20}
@@ -167,6 +164,19 @@ export default function Formulario() {
                 <Radio value="feminino" label="Feminino" />
               </Group>
             </Radio.Group>
+            <Select
+              mb={20}
+              radius="md"
+              required={true}
+              name="estadoCivil"
+              label="Estado Civil"
+              value={form.estadoCivil}
+              onChange={(value) =>
+                setForm({ ...form, estadoCivil: value ?? "" })
+              }
+              placeholder="Selecione seu estado civil"
+              data={["Solteiro", "Casado", "Divorciado", "Viúvo", "Amasiado"]}
+            />
             <NumberInput
               mb={20}
               radius="md"
@@ -176,7 +186,29 @@ export default function Formulario() {
               description="Apenas números, sem pontos ou traços"
               placeholder="Digite seu RG"
               value={form.rg}
-              onChange={handleNumberChange}
+              onChange={(value) =>
+                setForm({ ...form, rg: value === "" ? "" : String(value) })
+              }
+            />
+            <NumberInput
+              mb={20}
+              radius="md"
+              required={true}
+              name="whatsapp"
+              label="WhatsApp"
+              description="Apenas números, sem pontos ou traços"
+              placeholder="Digite seu WhatsApp"
+              type="tel"
+              hideControls={true}
+              allowNegative={false}
+              allowDecimal={false}
+              value={form.whatsapp}
+              onChange={(value) =>
+                setForm({
+                  ...form,
+                  whatsapp: value === "" ? "" : String(value),
+                })
+              }
             />
           </Fieldset>
           <div className="flex mt-4 justify-center items-center w-full">
