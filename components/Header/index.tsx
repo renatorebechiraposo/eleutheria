@@ -113,7 +113,7 @@ export default function Header() {
           />
         </Link>
         {/* Desktop Menu */}
-        <nav className="hidden md:flex gap-2 md:divide-x md:divide-[#e0e0e0]">
+        <nav className="hidden md:flex divide-x divide-[#d9b141]">
           {menuItems.map((item) =>
             renderMenuItem({ item, closeMenu: close, pathname, router }),
           )}
@@ -131,8 +131,8 @@ export default function Header() {
             />
 
             {opened && (
-              <div className="flex flex-col gap-6 py-6 absolute top-28 left-0 w-full bg-[#1c1d28] shadow-lg z-50">
-                <div className="flex flex-col p-4 gap-6">
+              <div className="flex flex-col py-6 absolute top-28 left-0 w-full bg-[#1c1d28] shadow-lg z-50">
+                <div className="flex flex-col gap-4">
                   {menuItems.map((item) =>
                     renderMenuItem({
                       item,
