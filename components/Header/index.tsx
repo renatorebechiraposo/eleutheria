@@ -44,19 +44,19 @@ type MenuItem = {
 
 type RenderMenuItemProps = {
   item: MenuItem;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  closeMenu: () => void;
   pathname: string;
   router: ReturnType<typeof useRouter>;
 };
 
 function renderMenuItem({
   item,
-  setIsOpen,
+  closeMenu,
   pathname,
   router,
 }: RenderMenuItemProps) {
   const handleScrollLinkClick = () => {
-    setIsOpen(false);
+    closeMenu();
     if (pathname !== "/") {
       router.push("/");
     }
@@ -68,7 +68,7 @@ function renderMenuItem({
         key={item.name}
         href={item.link}
         className={`${playfair.className} px-4 text-[#f9f9f9] text-lg cursor-pointer hover:text-[#fed728] hover:duration-500`}
-        onClick={() => setIsOpen(false)}
+        onClick={closeMenu}
       >
         {item.name}
       </Link>
@@ -90,10 +90,10 @@ function renderMenuItem({
 }
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  const [opened, { toggle }] = useDisclosure();
+
+  const [opened, { toggle, close }] = useDisclosure(false);
 
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
@@ -115,28 +115,31 @@ export default function Header() {
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-2 md:divide-x md:divide-[#e0e0e0]">
           {menuItems.map((item) =>
-            renderMenuItem({ item, setIsOpen, pathname, router }),
+            renderMenuItem({ item, closeMenu: close, pathname, router }),
           )}
         </nav>
 
         {/* Mobile Menu */}
         {hasMounted && (
           <nav className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="p-4">
-              <Burger
-                opened={opened}
-                onClick={toggle}
-                aria-label="Toggle navigation"
-                color="#f9f9f9"
-                size="lg"
-              />
-            </button>
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              aria-label="Toggle navigation"
+              color="#f9f9f9"
+              size="lg"
+            />
 
-            {isOpen && (
+            {opened && (
               <div className="flex flex-col gap-6 py-6 absolute top-28 left-0 w-full bg-[#1c1d28] shadow-lg z-50">
                 <div className="flex flex-col p-4 gap-6">
                   {menuItems.map((item) =>
-                    renderMenuItem({ item, setIsOpen, pathname, router }),
+                    renderMenuItem({
+                      item,
+                      closeMenu: close,
+                      pathname,
+                      router,
+                    }),
                   )}
                 </div>
               </div>
