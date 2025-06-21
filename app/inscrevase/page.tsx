@@ -1,11 +1,10 @@
 "use client";
-
+import classes from "@/components/Layout.module.css";
 import {
   Blockquote,
   Button,
   Fieldset,
   Group,
-  NativeSelect,
   NumberInput,
   Radio,
   Select,
@@ -92,7 +91,7 @@ export default function Formulario() {
     <div
       className={`flex min-h-screen p-4 justify-center ${openSans.className}`}
     >
-      <div className="bg-white shadow-xl rounded-lg p-6 w-full max-w-2xl">
+      <div className={`${classes.layoutGray} rounded-lg p-6 w-full max-w-3xl`}>
         <div className="text-center mb-8">
           <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
             ELEUTHERIA 2026
@@ -103,7 +102,7 @@ export default function Formulario() {
           <p className="text-xs text-gray-600 italic">I Tessalonicenses 4, 3</p>
         </div>
         <Blockquote
-          color="rgb(225, 184, 64)"
+          color="yellow"
           icon={icon}
           iconSize={24}
           radius={"lg"}
@@ -125,7 +124,7 @@ export default function Formulario() {
               required={true}
               name="nome"
               label="Deus te chama pelo nome, qual é o seu?"
-              placeholder="Nome Completo"
+              description="Nome Completo"
               value={form.nome}
               onChange={(e) => setForm({ ...form, nome: e.target.value })}
             />
@@ -136,7 +135,7 @@ export default function Formulario() {
               name="dataNascimento"
               valueFormat="DD/MM/YYYY"
               label="Data de Nascimento"
-              placeholder="Selecione sua data de nascimento"
+              description="Informe a data de nascimento"
               value={
                 form.dataNascimento ? dayjs(form.dataNascimento).toDate() : null
               }

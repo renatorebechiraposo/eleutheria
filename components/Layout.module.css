@@ -8,3 +8,11 @@
     ),
     repeating-linear-gradient(45deg, #ffffff11 0 1px, transparent 1px 40px);
 }
+
+.layoutGray {
+  background-color: #ffffff;
+  background-image: repeating-linear-gradient(135deg,
+      #00000004 0 1px,
+      transparent 1px 40px),
+    repeating-linear-gradient(45deg, #00000004 0 1px, transparent 1px 40px);
+}
