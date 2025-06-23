@@ -31,35 +31,35 @@ import "@mantine/dates/styles.css";
 const information = [
   {
     title: "Data",
-    content: "20, 21 e 22 de Junho/2025",
+    content: "",
   },
   {
     title: "Música Tema",
-    content: "Eis-me aqui – Colo de Deus",
+    content: "",
   },
   {
     title: "Local",
-    content: "Centro de Formação Religioso – Luiza G. Freguglia",
+    content: "",
   },
   {
     title: "Cidade",
-    content: "Santa Bárbara d’Oeste",
+    content: "",
   },
   {
     title: "Saída",
-    content: "20/06/2025 às 19h00 - Paróquia Santa Luzia",
+    content: "",
   },
   {
     title: "Retorno",
-    content: "22/06/2025 às 17h30 - Saída de Santa Bárbara d’Oeste",
+    content: "",
   },
   {
     title: "Faixa etária",
-    content: "14 a 30 anos",
+    content: "",
   },
   {
     title: "Valor",
-    content: "R$ 100 - 1° lote até 15/05",
+    content: "",
   },
 ];
 

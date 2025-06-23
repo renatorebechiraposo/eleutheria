@@ -1,24 +1,19 @@
 "use client";
-{
+
   /*Next*/
-}
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-{
-  /*React*/
-}
+
+/*React*/
 import { Link as ScrollLink } from "react-scroll";
 import React, { useEffect, useState } from "react";
 
-{
-  /*Fonts*/
-}
+/*Fonts*/
 import { Playfair_Display } from "next/font/google";
 
-{
-  /*Mantine*/
-}
+
+/*Mantine*/
 import { Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
