@@ -68,7 +68,7 @@ export default function Testemunhos() {
   return (
     <section
       id="testemunhos"
-      className="flex flex-col items-center justify-center p-8 bg-[#78662b]/10"
+      className="flex flex-col items-center justify-center p-4 bg-[#78662b]/10"
     >
       <h1 className={`${playfair.className} font-bold text-2xl md:text-4xl`}>
         Testemuhos
@@ -81,11 +81,11 @@ export default function Testemunhos() {
           loop: true,
           align: "center",
         }}
-        className="md:min-w-8/12"
+        className="max-w-10/12 md:min-w-8/12"
       >
         {testimonials.map((testimonial, index) => (
           <Carousel.Slide key={index}>
-            <div className="flex flex-col items-center h-10/12 bg-[#1c1d28]/10 m-8 rounded-2xl p-8 gap-4">
+            <div className="flex flex-col items-center max-w-11/12 h-10/12 bg-[#1c1d28]/10 m-8 rounded-2xl p-4 gap-2">
               <Avatar
                 src={testimonial.image}
                 alt={testimonial.name}

@@ -1,6 +1,6 @@
 "use client";
 
-  /*Next*/
+/*Next*/
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -11,7 +11,6 @@ import React, { useEffect, useState } from "react";
 
 /*Fonts*/
 import { Playfair_Display } from "next/font/google";
-
 
 /*Mantine*/
 import { Burger } from "@mantine/core";
@@ -113,10 +112,12 @@ export default function Header() {
             renderMenuItem({ item, closeMenu: close, pathname, router }),
           )}
         </nav>
-
+        <h1 className={`md:hidden ${playfair.className} text-white`}>
+          ELEUTHERIA
+        </h1>
         {/* Mobile Menu */}
         {hasMounted && (
-          <nav className="md:hidden">
+          <nav className="flex justify-center items-center md:hidden">
             <Burger
               opened={opened}
               onClick={toggle}
