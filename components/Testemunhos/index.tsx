@@ -13,7 +13,6 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 /*Fonts*/
 import { Playfair_Display } from "next/font/google";
-import Image from "next/image";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["700"],
@@ -62,7 +61,6 @@ const testimonials: Testimonial[] = [
     text: '"Me chamo Murillo, tenho 20 anos. Recebi o convite para o retiro de quem eu menos esperava. Como estava de boa, resolvi ir. Três dias parecem muito tempo, mas lá esses três dias pareceram horas. Eu até queria ficar mais! Foram os três dias mais importantes da minha vida, onde realmente entendi que o propósito da vida é Deus, Ele transformou minha vida de uma forma que eu não sei explicar; Ele encheu o vazio do meu coração. Lá conheci pessoas que me aproximaram de Deus, só tenho a agradecer. Se você tiver a oportunidade de participar, vá! Não pense duas vezes; Se entregue completamente! Assim como Ele mudou minha vida, pode mudar a sua."',
     image: "/img/testemunhos/anonimo.webp",
   },
-  // Adicione os outros testemunhos aqui
 ];
 
 export default function Testemunhos() {

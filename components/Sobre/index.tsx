@@ -17,14 +17,7 @@ const playfair = Playfair_Display({
 
 export default function Sobre() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center max-w-full m-8 gap-1.5">
-      <Image
-        src="/img/sobre/coração.webp"
-        alt="Três corações sagrados"
-        width={125}
-        height={125}
-        className="hidden md:block"
-      />
+    <div className="flex flex-col md:flex-row items-center justify-center min-w-full m-8 gap-1.5">
       <div className="flex flex-col gap-4 md:max-w-2xl">
         <h1
           id="sobre"
@@ -58,9 +51,9 @@ export default function Sobre() {
         <Image
           src="/img/sobre/coração-mobile.webp"
           alt="Três corações sagrados"
-          width={500}
-          height={500}
-          className="md:hidden"
+          width={600}
+          height={600}
+          className="flex w-full justify-center items-center"
         />
         <h1
           className={`flex justify-center ${playfair.className} font-bold text-2xl md:text-4xl mb-4`}
@@ -79,13 +72,6 @@ export default function Sobre() {
           vivam de acordo com a vontade de Deus e alcancem a plenitude da vida.
         </p>
       </div>
-      <Image
-        className="hidden md:flex-col-reverse md:block"
-        src="/img/sobre/coração.webp"
-        alt="Três corações sagrados"
-        width={125}
-        height={125}
-      />
     </div>
   );
 }
