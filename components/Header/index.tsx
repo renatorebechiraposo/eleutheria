@@ -96,7 +96,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex flex-row-reverse items-center justify-between w-full px-6 py-4 gap-8 bg-[#1c1d28] shadow-md md:flex md:flex-row md:justify-center">
+      <header className="flex flex-row-reverse items-center justify-between w-full p-4 gap-8 bg-[#1c1d28] shadow-lg md:flex md:flex-row md:justify-center">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
@@ -109,7 +109,7 @@ export default function Header() {
         {/* Desktop Menu */}
         <nav className="hidden md:flex divide-x divide-[#d9b141]">
           {menuItems.map((item) =>
-            renderMenuItem({ item, closeMenu: close, pathname, router }),
+            renderMenuItem({ item, closeMenu: close, pathname, router })
           )}
         </nav>
         <h1 className={`md:hidden ${playfair.className} text-white`}>
@@ -135,7 +135,7 @@ export default function Header() {
                       closeMenu: close,
                       pathname,
                       router,
-                    }),
+                    })
                   )}
                 </div>
               </div>
