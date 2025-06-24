@@ -5,6 +5,7 @@ import "./globals.css";
 import classes from "@/components/Layout.module.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,6 +23,7 @@ export default function RootLayout({
         <MantineProvider>
           <Header />
           {children}
+          <ScrollToTop />
           <Footer />
         </MantineProvider>
       </body>

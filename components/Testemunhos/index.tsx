@@ -71,7 +71,7 @@ export default function Testemunhos() {
   return (
     <section
       id="testemunhos"
-      className="flex flex-col items-center justify-center p-4 bg-[#78662b]/10"
+      className="flex flex-col items-center justify-center p-4 bg-[#EAEAEA]/30"
     >
       <h1 className={`${playfair.className} font-bold text-2xl md:text-4xl`}>
         Testemuhos
