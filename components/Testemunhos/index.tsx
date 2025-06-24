@@ -66,7 +66,10 @@ export default function Testemunhos() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
-    <div id="testemunhos" className="flex flex-col items-center justify-center">
+    <section
+      id="testemunhos"
+      className="flex flex-col items-center justify-center p-8 bg-[#78662b]/10"
+    >
       <h1 className={`${playfair.className} font-bold text-2xl md:text-4xl`}>
         Testemuhos
       </h1>
@@ -74,6 +77,10 @@ export default function Testemunhos() {
         withIndicators
         w={500}
         slideSize={isDesktop ? "33.333333%" : "100%"}
+        emblaOptions={{
+          loop: true,
+          align: "center",
+        }}
         className="md:min-w-8/12"
       >
         {testimonials.map((testimonial, index) => (
@@ -82,7 +89,7 @@ export default function Testemunhos() {
               <Avatar
                 src={testimonial.image}
                 alt={testimonial.name}
-                radius="lg"
+                radius="md"
                 size="xl"
                 variant="filled"
                 className="md:min-h-20"
@@ -95,6 +102,6 @@ export default function Testemunhos() {
           </Carousel.Slide>
         ))}
       </Carousel>
-    </div>
+    </section>
   );
 }
