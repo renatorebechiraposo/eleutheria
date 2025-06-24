@@ -1,11 +1,14 @@
 "use client";
 
+/*React*/
 import React from "react";
 
+/*Mantine*/
 import { Avatar } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
 import "@mantine/carousel/styles.css";
 
+/*Hooks */
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 /*Fonts*/
